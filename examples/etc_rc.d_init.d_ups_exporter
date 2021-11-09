@@ -1,0 +1,49 @@
+#! /bin/sh
+
+# This file started as /etc/rc.d/init.d/ups_exporter - Start/Stop the ups prometheus exporter
+
+# Comment out the following exit line to enable this script.
+#exit 0
+
+DAEMON="ups_exporter"
+
+if [ ! -x /usr/sbin/ups_exporter ]; then
+  echo "/usr/sbin/ups_exporter file does not exist."
+  exit 0
+fi
+
+case "$1" in
+
+start)
+  echo "Starting ${DAEMON}"
+  ${DAEMON} &
+  ;;
+
+stop)
+  echo "Stopping ${DAEMON}"
+  if killall ${DAEMON}; then
+    echo "Done"
+  else echo "FAILED"; fi
+  ;;
+
+restart)
+  $0 stop
+  sleep 1
+  $0 start
+  ;;
+
+status)
+  ps -l | awk '{print $10}' | grep ups_exporter >/dev/null
+  if [ "$?" = "0" ]; then
+    echo "Running"
+  else echo "Stopped"; fi
+  ;;
+
+*)
+  echo "Usage: $0 (start|stop|restart) [...]"
+  exit 1
+  ;;
+
+esac
+
+exit 0
