@@ -23,11 +23,11 @@ func getMetricsString(s Status) string {
 		generateHelpTypeString("ups_input_frequency", "Input frequency.") +
 		`ups_input_frequency{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.InputFrequency) + "\n" +
 		generateHelpTypeString("ups_input_phases", "Number of input phases.") +
-		`ups_input_phases{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + strconv.Itoa(s.InputPhase) + "\n" +
+		`ups_input_phases{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.InputPhase) + "\n" +
 
 		// output
 		generateHelpTypeString("ups_output_phases", "Number of output phases.") +
-		`ups_output_phases{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + strconv.Itoa(s.OutputPhase) + "\n" +
+		`ups_output_phases{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.OutputPhase) + "\n" +
 		generateHelpTypeString("ups_output_voltage", "Output voltage.") +
 		`ups_output_voltage{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.OutputVoltage) + "\n" +
 		generateHelpTypeString("ups_output_frequency", "Output frequency.") +
@@ -35,17 +35,29 @@ func getMetricsString(s Status) string {
 		generateHelpTypeString("ups_output_current", "Output current.") +
 		`ups_output_current{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.OutputCurrent) + "\n" +
 		generateHelpTypeString("ups_output_load_percent", "Output load in percent.") +
-		`ups_output_load_percent{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + strconv.Itoa(s.OutputLoadPercent) + "\n" +
+		`ups_output_load_percent{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.OutputLoadPercent) + "\n" +
+		generateHelpTypeString("ups_output_active_power", "Output active power.") +
+		`ups_output_active_power{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.OutputActivePower) + "\n" +
+		generateHelpTypeString("ups_output_apparent_power", "Output apparent power.") +
+		`ups_output_apparent_power{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.OutputApparentPower) + "\n" +
+		generateHelpTypeString("ups_output_current_s", "Output current (s).") +
+		`ups_output_current_s{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.OutputCurrentS) + "\n" +
+		generateHelpTypeString("ups_output_current_t", "Output current (t).") +
+		`ups_output_current_t{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.OutputCurrentT) + "\n" +
 
 		// battery
 		generateHelpTypeString("ups_battery_voltage", "Battery voltage.") +
 		`ups_battery_voltage{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.BatteryVoltage) + "\n" +
 		generateHelpTypeString("ups_battery_capacity_percent", "Battery capacity in percent.") +
-		`ups_battery_capacity_percent{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + strconv.Itoa(s.BatteryCapacityPercent) + "\n" +
+		`ups_battery_capacity_percent{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.BatteryCapacityPercent) + "\n" +
 		generateHelpTypeString("ups_battery_remaining_backup_time", "Battery remaining backup time.") +
-		`ups_battery_remaining_backup_time{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + strconv.Itoa(s.BatteryRemainingBackupTime) + "\n" +
+		`ups_battery_remaining_backup_time{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.BatteryRemainingBackupTime) + "\n" +
 		generateHelpTypeString("ups_battery_group_number", "Battery groups.") +
-		`ups_battery_group_number{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + strconv.Itoa(s.BatteryGroupNumber) + "\n" +
+		`ups_battery_group_number{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.BatteryGroupNumber) + "\n" +
+		generateHelpTypeString("ups_battery_charging_current", "Battery charging current.") +
+		`ups_battery_charging_current{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.BatteryChargingCurrent) + "\n" +
+		generateHelpTypeString("ups_battery_discharging_current", "Battery discharging current.") +
+		`ups_battery_discharging_current{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.BatteryDischargingCurrent) + "\n" +
 
 		// rated values
 		generateHelpTypeString("ups_rated_va", "Rated VA of the UPS.") +

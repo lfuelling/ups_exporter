@@ -1,33 +1,49 @@
 package main
 
 type Status struct {
+	// real
 	OperatingMode  string
 	UPSTemperature float64
 	InputVoltage float64
 	InputFrequency float64
-	InputPhase int
-	OutputPhase int
 	OutputVoltage float64
 	OutputFrequency float64
 	OutputCurrent float64
-	OutputLoadPercent int
+	OutputLoadPercent float64
+	OutputActivePower float64
+	OutputApparentPower float64
+	OutputCurrentS float64
+	OutputCurrentT float64
+	BypassV31 float64
+	BypassVoltageT float64
+	BypassVoltageS float64
+	BypassV23 float64
+	BypassFrequency float64
+	LoadLevelS float64
+	LoadLevelT float64
 	BatteryVoltage float64
-	BatteryCapacityPercent int
-	BatteryRemainingBackupTime int
-	BatteryGroupNumber int
-	RatedVA float64
-	RatedOutputFrequency float64
-	RatedOutputVoltage float64
-	RatedOutputCurrent float64
-	RatedBatteryVoltage float64
+	BatteryCapacityPercent float64
+	BatteryRemainingBackupTime float64
+	BatteryChargingCurrent float64
+	BatteryDischargingCurrent float64
 	AutoReboot bool
 	EcoMode bool
 	BypassDisabled bool
 	ConverterMode bool
 	BypassWhenOff bool
+
+	// base
 	UPSType string
+	InputPhase float64
+	OutputPhase float64
 	UPSSerial string
 	UPSFirmware string
 	SNMPFirmware string
 	EquipmentAttached string
+	BatteryGroupNumber float64
+	RatedVA float64
+	RatedOutputFrequency float64
+	RatedOutputVoltage float64
+	RatedOutputCurrent float64
+	RatedBatteryVoltage float64
 }
