@@ -16,13 +16,12 @@ func renderMetricsResponse() (string, error) {
 	status, err := getMetrics()
 	if err != nil {
 		log.Println("Unable to get metrics!", err)
-		res = getHelpString() +
-			getFetchSuccessString("UNKNOWN", "UNKNOWN", 0) +
+		res = getFetchSuccessString("UNKNOWN", "UNKNOWN", 0) +
 			getFetchDurationString("UNKNOWN", "UNKNOWN", time.Now().UnixNano()-startTime)
 
 		return res, nil
 	} else {
-		res = getHelpString() + getMetricsString(status) +
+		res = getMetricsString(status) +
 			getFetchSuccessString(status.UPSType, status.UPSSerial, 0) +
 			getFetchDurationString(status.UPSType, status.UPSSerial, time.Now().UnixNano()-startTime)
 
