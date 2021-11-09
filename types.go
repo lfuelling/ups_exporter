@@ -2,24 +2,24 @@ package main
 
 type Status struct {
 	OperatingMode  string
-	UPSTemperature int
-	InputVoltage int
-	InputFrequency int
+	UPSTemperature float64
+	InputVoltage float64
+	InputFrequency float64
 	InputPhase int
 	OutputPhase int
-	OutputVoltage int
-	OutputFrequency int
-	OutputCurrent int
+	OutputVoltage float64
+	OutputFrequency float64
+	OutputCurrent float64
 	OutputLoadPercent int
-	BatteryVoltage int
+	BatteryVoltage float64
 	BatteryCapacityPercent int
 	BatteryRemainingBackupTime int
 	BatteryGroupNumber int
-	RatedVA int
-	RatedOutputFrequency int
-	RatedOutputVoltage int
-	RatedOutputCurrent int
-	RatedBatteryVoltage int
+	RatedVA float64
+	RatedOutputFrequency float64
+	RatedOutputVoltage float64
+	RatedOutputCurrent float64
+	RatedBatteryVoltage float64
 	AutoReboot bool
 	EcoMode bool
 	BypassDisabled bool

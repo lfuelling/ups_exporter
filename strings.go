@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"strconv"
 )
 
@@ -14,13 +15,13 @@ func getMetricsString(s Status) string {
 	return "" +
 		// temperature
 		generateHelpTypeString("ups_temperature", "UPS Temperature.") +
-		`ups_temperature{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + strconv.Itoa(s.UPSTemperature) + "\n" +
+		`ups_temperature{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.UPSTemperature) + "\n" +
 
 		// input
 		generateHelpTypeString("ups_input_voltage", "Input voltage.") +
-		`ups_input_voltage{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + strconv.Itoa(s.InputVoltage) + "\n" +
+		`ups_input_voltage{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.InputVoltage) + "\n" +
 		generateHelpTypeString("ups_input_frequency", "Input frequency.") +
-		`ups_input_frequency{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + strconv.Itoa(s.InputFrequency) + "\n" +
+		`ups_input_frequency{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.InputFrequency) + "\n" +
 		generateHelpTypeString("ups_input_phases", "Number of input phases.") +
 		`ups_input_phases{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + strconv.Itoa(s.InputPhase) + "\n" +
 
@@ -28,17 +29,17 @@ func getMetricsString(s Status) string {
 		generateHelpTypeString("ups_output_phases", "Number of output phases.") +
 		`ups_output_phases{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + strconv.Itoa(s.OutputPhase) + "\n" +
 		generateHelpTypeString("ups_output_voltage", "Output voltage.") +
-		`ups_output_voltage{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + strconv.Itoa(s.OutputVoltage) + "\n" +
+		`ups_output_voltage{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.OutputVoltage) + "\n" +
 		generateHelpTypeString("ups_output_frequency", "Output frequency.") +
-		`ups_output_frequency{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + strconv.Itoa(s.OutputFrequency) + "\n" +
+		`ups_output_frequency{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.OutputFrequency) + "\n" +
 		generateHelpTypeString("ups_output_current", "Output current.") +
-		`ups_output_current{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + strconv.Itoa(s.OutputCurrent) + "\n" +
+		`ups_output_current{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.OutputCurrent) + "\n" +
 		generateHelpTypeString("ups_output_load_percent", "Output load in percent.") +
 		`ups_output_load_percent{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + strconv.Itoa(s.OutputLoadPercent) + "\n" +
 
 		// battery
 		generateHelpTypeString("ups_battery_voltage", "Battery voltage.") +
-		`ups_battery_voltage{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + strconv.Itoa(s.BatteryVoltage) + "\n" +
+		`ups_battery_voltage{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.BatteryVoltage) + "\n" +
 		generateHelpTypeString("ups_battery_capacity_percent", "Battery capacity in percent.") +
 		`ups_battery_capacity_percent{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + strconv.Itoa(s.BatteryCapacityPercent) + "\n" +
 		generateHelpTypeString("ups_battery_remaining_backup_time", "Battery remaining backup time.") +
@@ -48,15 +49,15 @@ func getMetricsString(s Status) string {
 
 		// rated values
 		generateHelpTypeString("ups_rated_va", "Rated VA of the UPS.") +
-		`ups_rated_va{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + strconv.Itoa(s.RatedVA) + "\n" +
+		`ups_rated_va{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.RatedVA) + "\n" +
 		generateHelpTypeString("ups_rated_output_frequency", "Rated output frequency of the UPS.") +
-		`ups_rated_output_frequency{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + strconv.Itoa(s.RatedOutputFrequency) + "\n" +
+		`ups_rated_output_frequency{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.RatedOutputFrequency) + "\n" +
 		generateHelpTypeString("ups_rated_output_voltage", "Rated output voltage of the UPS.") +
-		`ups_rated_output_voltage{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + strconv.Itoa(s.RatedOutputVoltage) + "\n" +
+		`ups_rated_output_voltage{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.RatedOutputVoltage) + "\n" +
 		generateHelpTypeString("ups_rated_output_current", "Rated output current of the UPS.") +
-		`ups_rated_output_current{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + strconv.Itoa(s.RatedOutputCurrent) + "\n" +
+		`ups_rated_output_current{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.RatedOutputCurrent) + "\n" +
 		generateHelpTypeString("ups_rated_battery_voltage", "Rated battery voltage of the UPS.") +
-		`ups_rated_battery_voltage{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + strconv.Itoa(s.RatedBatteryVoltage) + "\n" +
+		`ups_rated_battery_voltage{type="` + s.UPSType + `",serial="` + s.UPSSerial + `"} ` + fmt.Sprintf("%.2f", s.RatedBatteryVoltage) + "\n" +
 
 		// state
 		generateHelpTypeString("ups_auto_reboot", "Auto reboot enabled.") +
